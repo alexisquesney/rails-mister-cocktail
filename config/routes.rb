@@ -1,23 +1,9 @@
 Rails.application.routes.draw do
-
-  # get 'doses/new'
-  #
-  # get 'doses/create'
-  #
-  # get 'doses/destroy'
-
-  # get 'cocktails', to: 'cocktails#index'
-  #
-  # get '/cocktails/:id', to: 'cocktails#show'
-  #
-  # get '/cocktails/new', to: 'cocktails#new'
-  #
-  # get 'cocktails/create'
-
-  resources :cocktails do
-    resources :doses
+  root 'cocktails#index'
+  resources :cocktails, only: [:index, :show, :new, :create] do
+    resources :doses, only: [:new, :create]
   end
-  resources :doses
+  resources :doses, only: [:destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
