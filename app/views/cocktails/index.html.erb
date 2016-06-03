@@ -1,5 +1,6 @@
 <h1>List of all cocktails</h1>
 
 <% @cocktails.each do |cocktail| %>
+  <%= image_tag cocktail.photo.url(:bright_face) %>
   <%= link_to cocktail.name, cocktail_path(cocktail) %><br>
 <% end %>
