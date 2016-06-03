@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @cocktail = Cocktail.find(params[:cocktail_id])
     @review = Review.new
   end
 
